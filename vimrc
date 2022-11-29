@@ -27,3 +27,25 @@ set path+=**
 " @see :help wildmenu
 set wildmenu
 
+" Enables true color & sets tokyonight as the default color scheme.
+"
+" According to the original author:
+"
+" > (...) this doesn't hard-code any color configuration in vim, which is a 
+" > clean approach. You should never have to force vim to use 256 color.
+" > The terminal is responsible to tell vim whether 256 colors are
+" > supported or not.
+"
+" @see https://stackoverflow.com/a/68793002/1036669 
+" @see :help true-color
+if &term =~ '256color'
+  " Enable true (24-bit) colors instead of (8-bit) 256 colors.
+  " :h true-color
+  if has('termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+  endif
+  colorscheme tokyonight
+endif
+
