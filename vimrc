@@ -49,3 +49,14 @@ if &term =~ '256color'
   colorscheme tokyonight
 endif
 
+" Sources local vim file
+"
+" The local.vim should contain settings specific to the local environment.
+" This allows for local tweaking without messing with the repo files. As
+" such, local.vim is ignored by git, and should be kept that way. It is 
+" imperative that this block always stays at the bottom of this file,
+" in order to allow full local overriding.
+if filereadable('local.vim')
+  source local.vim
+endif
+
