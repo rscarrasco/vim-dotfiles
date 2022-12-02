@@ -49,6 +49,16 @@ if &term =~ '256color'
   colorscheme tokyonight
 endif
 
+" Source a file if it exists.
+"
+" @see https://devel.tech/snippets/n/vIIMz8vZ/load-vim-source-files-only-if-they-exist
+function! SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe 'source' a:file
+  endif
+endfunction
+" }
+
 " Sources local vim file
 "
 " The local.vim should contain settings specific to the local environment.
@@ -56,7 +66,5 @@ endif
 " such, local.vim is ignored by git, and should be kept that way. It is 
 " imperative that this block always stays at the bottom of this file,
 " in order to allow full local overriding.
-if filereadable('local.vim')
-  source local.vim
-endif
+call SourceIfExists('~/.vim/local.vim')
 
