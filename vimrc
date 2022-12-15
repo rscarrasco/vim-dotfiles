@@ -1,3 +1,4 @@
+" Autoindent using 4 spaces always.
 set autoindent expandtab tabstop=4 shiftwidth=4
 
 " Enables hybrid number (absolute + relative).
