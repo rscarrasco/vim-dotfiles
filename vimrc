@@ -1,5 +1,6 @@
 set autoindent expandtab tabstop=4 shiftwidth=4
 
+" Enables hybrid number (absolute + relative).
 set number relativenumber
 
 " Searchs down into subfolders.
